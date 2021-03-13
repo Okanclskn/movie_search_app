@@ -4,6 +4,7 @@ import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./theme";
+import { Box, Container } from "@material-ui/core";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -28,7 +29,11 @@ export default function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <Container maxWidth={false}>
+          <Box marginTop={2}>
+            <Component {...pageProps} />
+          </Box>
+        </Container>
       </ThemeProvider>
     </React.Fragment>
   );
