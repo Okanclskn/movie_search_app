@@ -5,12 +5,16 @@ import { useRouter } from "next/router";
 const SearchInput = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
+
   const getInputSearchTerm = (event) => {
     setSearchTerm(event.target.value);
   };
   const onFormSubmit = (event) => {
-    router.push("/Home", (query = searchTerm));
     event.preventDefault();
+    router.push({
+      pathname: "/Home",
+      query: { term: searchTerm },
+    });
   };
   return (
     <div>
@@ -24,7 +28,6 @@ const SearchInput = () => {
             value={searchTerm}
             onChange={getInputSearchTerm}
           />
-
           <Button type="submit" variant="contained" color="primary">
             Search
           </Button>
