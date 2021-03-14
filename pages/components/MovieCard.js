@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "@material-ui/core";
 import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
@@ -21,7 +22,7 @@ const MovieCard = ({ movie }) => {
             {movie.overview}
           </Typography>
           <Typography gutterBottom variant="h6" component="h6">
-            {"rate:" + movie.popularity}
+            {"Rate:" + movie.vote_average}
           </Typography>
         </CardContent>
       </CardActionArea>
