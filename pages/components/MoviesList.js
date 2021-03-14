@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "@material-ui/core";
 import MovieCard from "./MovieCard";
 import { useRouter } from "next/router";
 const MovieList = ({ movieslist }) => {

@@ -8,9 +8,8 @@ import Typography from "@material-ui/core/Typography";
 import { Container } from "@material-ui/core";
 
 const MovieCard = ({ movie }) => {
-  console.log(movie.poster_path);
   const imgpath = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
-  console.log(imgpath, "imgg");
+
   return (
     <Card>
       <CardActionArea>

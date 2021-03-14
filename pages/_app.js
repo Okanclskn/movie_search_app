@@ -5,6 +5,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import theme from "./theme";
 import { Box, Container } from "@material-ui/core";
+import { MovieProvider } from "./context/UpComingContext";
 
 export default function MyApp(props) {
   const { Component, pageProps } = props;
@@ -31,7 +32,9 @@ export default function MyApp(props) {
         <CssBaseline />
         <Container maxWidth={false}>
           <Box marginTop={2}>
-            <Component {...pageProps} />
+            <MovieProvider>
+              <Component {...pageProps} />
+            </MovieProvider>
           </Box>
         </Container>
       </ThemeProvider>
