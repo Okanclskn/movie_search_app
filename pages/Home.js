@@ -3,6 +3,7 @@ import { Box } from "@material-ui/core";
 import SearchInput from "./components/SearchInput";
 const API_KEY = "dc6f208a79ce2be6fb75d72a554bdd33";
 import movies_api from "./api/movie_api";
+import MovieList from "./components/MoviesList";
 
 export default function HomePage({ movies }) {
   return (
@@ -10,6 +11,7 @@ export default function HomePage({ movies }) {
       <Box margin="0 auto" width="30%">
         <SearchInput></SearchInput>
       </Box>
+      <MovieList movieslist={movies}></MovieList>
     </React.Fragment>
   );
 }
