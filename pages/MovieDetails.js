@@ -1,13 +1,19 @@
-import { Container } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
 import movies_api from "./api/movie_api";
 import { MovieDetailCard } from "./components/MovieDetailCard";
+import SimilarMoviesList from "./components/SimilarMoviesList";
 const API_KEY = "dc6f208a79ce2be6fb75d72a554bdd33";
-export default function MovieDetails({ movieDetail }) {
+export default function MovieDetails({ movieDetail, similarMoviesList }) {
   return (
     <div>
-      <Container maxWidth="md">
-        <MovieDetailCard moviedetail={movieDetail} />
-      </Container>
+      <Grid container spacing={3}>
+        <Grid item xs={3}>
+          <SimilarMoviesList similarmovieslist={similarMoviesList} />
+        </Grid>
+        <Grid item xs={9}>
+          <MovieDetailCard moviedetail={movieDetail} />
+        </Grid>
+      </Grid>
     </div>
   );
 }
@@ -18,6 +24,14 @@ MovieDetails.getInitialProps = async (context) => {
       api_key: API_KEY,
     },
   });
-
-  return { movieDetail: response.data };
+  const similarresponse = await movies_api.get(`/movie/${movieId}/similar`, {
+    params: {
+      api_key: API_KEY,
+    },
+  });
+  console.log(similarresponse, "similar");
+  return {
+    movieDetail: response.data,
+    similarMoviesList: similarresponse.data.results,
+  };
 };

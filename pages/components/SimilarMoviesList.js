@@ -1,8 +1,8 @@
-import React from "react";
 import { Container } from "@material-ui/core";
 import MovieCard from "./MovieCard";
 import { useRouter } from "next/router";
-const MovieList = ({ movieslist }) => {
+import { Box } from "@material-ui/core";
+const SimilarMoviesList = ({ similarmovieslist }) => {
   const router = useRouter();
   const showMovieDetails = (id) => {
     router.push({
@@ -11,13 +11,16 @@ const MovieList = ({ movieslist }) => {
     });
   };
   return (
-    <React.Fragment>
-      {movieslist?.map((movie, index) => (
+    <Container maxWidth="xs">
+      {similarmovieslist.slice(0, 10)?.map((movie, index) => (
         <div key={index} onClick={() => showMovieDetails(movie.id)}>
-          <MovieCard movie={movie}></MovieCard>
+          <Box>
+            <MovieCard movie={movie}></MovieCard>
+          </Box>
         </div>
       ))}
-    </React.Fragment>
+    </Container>
   );
 };
-export default MovieList;
+
+export default SimilarMoviesList;

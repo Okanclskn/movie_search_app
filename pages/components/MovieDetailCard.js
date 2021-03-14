@@ -1,7 +1,6 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 export const MovieDetailCard = ({ moviedetail }) => {
   return (
@@ -45,6 +44,17 @@ export const MovieDetailCard = ({ moviedetail }) => {
               component="p"
               gutterBottom
             >
+              <strong>Genres : </strong>
+              <span>
+                {moviedetail.genres.map((genre) => genre.name).join(",")}
+              </span>
+            </Typography>
+            <Typography
+              variant="body2"
+              color="textSecondary"
+              component="p"
+              gutterBottom
+            >
               <strong>Release Date : </strong>
               <span>{moviedetail.release_date}</span>
             </Typography>
@@ -54,7 +64,7 @@ export const MovieDetailCard = ({ moviedetail }) => {
               component="p"
               gutterBottom
             >
-              <strong>Rate</strong>
+              <strong>Rate : </strong>
               <span>{moviedetail.vote_average}</span>
             </Typography>
             <Typography

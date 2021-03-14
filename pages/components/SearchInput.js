@@ -8,7 +8,7 @@ const SearchInput = () => {
   const [searchTermList, setSearchTermList] = useState([]);
   const [showSearchHistory, setSearchhistory] = useState(false);
   const router = useRouter();
-  console.log(searchTermList, "hiiii");
+
   const getInputSearchTerm = (event) => {
     setSearchTerm(event.target.value);
   };
