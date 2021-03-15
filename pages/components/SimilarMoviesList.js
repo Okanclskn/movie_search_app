@@ -13,11 +13,11 @@ const SimilarMoviesList = ({ similarmovieslist }) => {
   };
   return (
     <Container maxWidth="xs">
+      <Typography gutterBottom variant="h5" component="h5">
+        {"Similar Movies"}
+      </Typography>
       {similarmovieslist.slice(0, 10)?.map((movie, index) => (
         <div key={index} onClick={() => showMovieDetails(movie.id)}>
-          <Typography gutterBottom variant="h5" component="h5">
-            {"Similar Movies"}
-          </Typography>
           <Box>
             <MovieCard movie={movie}></MovieCard>
           </Box>
